@@ -2,6 +2,9 @@ var YOUTUBE_API_KEY = "AIzaSyD_uBzuA9_xBhHQPUXnwD9z8FXwcGsPOnM";
 var youTubeSearchTerm = "";
 var oldSearchesKeywords = [];
 
+window.addEventListener('load', function() {
+  M.AutoInit();
+})
 // will run after the user chooses a type of activity and hits search/submit. will need a button event listener to call it.
 function getActivity() {
   // This will be the variable that gets the value of whatever the user selects as the type of activity they want. Eventually we will need an event listener or an event.target.getAttribute to get the value of the user's choice and use it to define this variable.
