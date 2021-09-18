@@ -1,5 +1,6 @@
 var YOUTUBE_API_KEY = "AIzaSyD_uBzuA9_xBhHQPUXnwD9z8FXwcGsPOnM";
 var youTubeSearchTerm = "";
+var oldSearchesKeywords = [];
 
 // will run after the user chooses a type of activity and hits search/submit. will need a button event listener to call it.
 function getActivity() {
@@ -18,17 +19,21 @@ function getActivity() {
 
       youTubeSearchTerm = data.activity;
       // will pass the randomly generated activity on into our next function, which will get the YouTube video
-      getVideo(youTubeSearchTerm);
+      
+      // getVideo(youTubeSearchTerm);
 
-/*   // Trying to get past search terms into local storage, but none of this is working.
-  if (youTubeSearchTerm) {
-    console.log(youTubeSearchTerm);
+      // Trying to get past search terms into local storage, but none of this is working.
+      if (youTubeSearchTerm) {
+        console.log(youTubeSearchTerm);
 
-    // takes search term and puts it in an array we can stash into local storage
-    oldSearchesKeywords.push(youTubeSearchTerm);
-    // puts past searches into local storage. still need to write different function to get it out. I don't know if this will work.
-    localStorage.setItem("oldSearches", JSON.stringify(oldSearchesKeywords));
-  } */
+        // takes search term and puts it in an array we can stash into local storage
+        oldSearchesKeywords.push(youTubeSearchTerm);
+        // puts past searches into local storage. still need to write different function to get it out. I don't know if this will work.
+        localStorage.setItem(
+          "oldSearches",
+          JSON.stringify(oldSearchesKeywords)
+        );
+      }
     });
 }
 // This is the function that will get the YouTube video
@@ -41,7 +46,7 @@ function getVideo(youtTubeSearchTerm) {
     "How to " +
     youtTubeSearchTerm +
     "&key=" +
-    YOUTUBE_API_KEY;
+    YOUTUBE_API_KE;
 
   // fetches a set of data from the parameters of "How to [whatever the recommended activity was]"
   fetch(youTubeurl)
