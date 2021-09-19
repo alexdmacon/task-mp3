@@ -1,14 +1,32 @@
 var YOUTUBE_API_KEY = "AIzaSyD_uBzuA9_xBhHQPUXnwD9z8FXwcGsPOnM";
 var youTubeSearchTerm = "";
 var oldSearchesKeywords = [];
+var submitButton = document.querySelector("#submit-search");
+var activitySelection = document.querySelector("#activity-type-select");
+var recommendedActivity = document.querySelector("#recommended-activity");
+var YTVideo = document.querySelector("#YT-Video")
 
-window.addEventListener('load', function() {
+// for Materalize/CSS styling
+window.addEventListener("load", function () {
   M.AutoInit();
-})
+});
+
+// event listener for Submit button
+submitButton.addEventListener("click", activitySearch);
+
+// gets user's choice from dropdown and passes through to getActivity function
+function activitySearch() {
+  var userInput = activitySelection.value;
+
+  console.log(userInput);
+
+  getActivity(userInput);
+}
+
 // will run after the user chooses a type of activity and hits search/submit. will need a button event listener to call it.
-function getActivity() {
+function getActivity(userInput) {
   // This will be the variable that gets the value of whatever the user selects as the type of activity they want. Eventually we will need an event listener or an event.target.getAttribute to get the value of the user's choice and use it to define this variable.
-  var userInput = "recreational";
+  console.log(userInput);
 
   // adds the type of activity to the url to narrow down the selection of randomly chosen activities
   var boredurl = "http://www.boredapi.com/api/activity?type=" + userInput;
@@ -21,6 +39,9 @@ function getActivity() {
       console.log(data.activity);
 
       youTubeSearchTerm = data.activity;
+
+      // displays text of generated activity recommendation
+      recommendedActivity.textContent=youTubeSearchTerm;
 
       // will pass the randomly generated activity on into our next function, which will get the YouTube video
       getVideo(youTubeSearchTerm);
@@ -57,11 +78,14 @@ function getVideo(youtTubeSearchTerm) {
       // following line should log the ID of the first video found by the search, which we'll need to embed it in the html.
       console.log(data.items[0].id.videoId);
 
+      var videoDisplay=document.createElement("iframe");
+      videoDisplay.setAttribute("src", "https://www.youtube.com/embed/" + data.items[0].id.videoId);
+      videoDisplay.setAttribute("height", 340);
+      videoDisplay.setAttribute("width", 560);
+      YTVideo.append(videoDisplay)
       // This is the url I think we'll need to eventually use to embed our videos on the page: https://www.youtube.com/embed/${data.items[0].id.videoId}
     });
 }
-
-getActivity();
 
 // Everything below here is not code for the project, just for instruction and reference.
 
