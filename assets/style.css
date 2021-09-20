@@ -1,4 +1,4 @@
-/* I'm not at all tied to the styles here for #past-activities-button and #clear-searches-button button, I just made these two selectors so y'all would know they're here. They are for elements that are created in JavaScript based on user input, and are not visible in the HTML file--AM */
+/* I'm not at all tied to the styles here for #past-activities button and #clear-searches-button button, I just made these two selectors so y'all would know they're here. They are for elements that are created in JavaScript based on user input, and are not visible in the HTML file--AM */
 #past-activities button{
     background-color: teal;
     color: white;

@@ -1,4 +1,4 @@
-// YouTube has a daily quota on how many times we can use its API with this key, so only test the getVideo function when necessary. I've been commenting it out off and on.
+// YouTube has a daily quota on how many times we can use its API with this key, so only test the getVideo function when necessary. I've been commenting this key out mostly when testing.
 var YOUTUBE_API_KEY = "AIzaSyD_uBzuA9_xBhHQPUXnwD9z8FXwcGsPOnM";
 
 // various selectors
@@ -25,6 +25,10 @@ function activitySearch() {
   var userInput = activitySelection.value;
   console.log(userInput);
   getActivity(userInput);
+
+  if (localStorage.oldSearches.length > 1) {
+    displaySearches();
+  }
 }
 
 // will run after the user chooses a type of activity and hits search/submit.
@@ -67,7 +71,7 @@ function getVideo(youTubeSearchTerm) {
   console.log(youTubeSearchTerm);
 
   // displays text of generated activity recommendation
-  recommendedActivity.textContent = youTubeSearchTerm;
+  recommendedActivity.textContent = "You can do this: " + youTubeSearchTerm;
 
   // makes the randomly generated activity from the previous function the text for a YouTube search. "maxResults=1" means it's selecting the first ranked video in response to our search terms.
   var youTubeurl =
@@ -112,6 +116,7 @@ onload = function () {
 // takes past searches from array in localstorage and displays them on page as buttons
 function displaySearches() {
   pastActivities.empty();
+
   tryAgainH3.textContent = "Or try one of these activities again!";
   var oldSearches = JSON.parse(localStorage.oldSearches);
   for (let i = 0; i < oldSearches.length; i++) {
@@ -134,6 +139,9 @@ function getPastSearch(event) {
   if (youTubeSearchTerm) {
     YTVideo.innerHTML = "";
     getVideo(youTubeSearchTerm);
+  }
+  if (localStorage.oldSearches.length > 1) {
+    displaySearches();
   }
 }
 
