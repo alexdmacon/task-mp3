@@ -1,0 +1,15 @@
+#past-activities button{
+    background-color: teal;
+    color: white;
+    font-size: 20px;
+    padding: 4px;
+    margin: 4px;
+}
+
+#clear-searches-button button{
+    background-color: salmon;
+    color: white;
+    font-size: 20px;
+    padding: 4px;
+    margin: 4px;
+}

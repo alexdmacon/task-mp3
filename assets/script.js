@@ -5,6 +5,9 @@ var submitButton = document.querySelector("#submit-search");
 var activitySelection = document.querySelector("#activity-type-select");
 var recommendedActivity = document.querySelector("#recommended-activity");
 var YTVideo = document.querySelector("#YT-Video");
+var pastActivities = $("#past-activities");
+var tryAgainH3 = document.querySelector("#try-again");
+var clearSearchBtn = document.querySelector("#clear-searches-button");
 
 // for Materalize/CSS styling
 window.addEventListener("load", function () {
@@ -26,7 +29,7 @@ function getActivity(userInput) {
   console.log(userInput);
 
   // clears previous YouTube video
-  YTVideo.innerHTML="";
+  YTVideo.innerHTML = "";
 
   // adds the type of activity to the url to narrow down the selection of randomly chosen activities
   var boredurl = "http://www.boredapi.com/api/activity?type=" + userInput;
@@ -44,7 +47,7 @@ function getActivity(userInput) {
       recommendedActivity.textContent = youTubeSearchTerm;
 
       // will pass the randomly generated activity on into our next function, which will get the YouTube video
-      getVideo(youTubeSearchTerm);
+      // getVideo(youTubeSearchTerm);
 
       if (youTubeSearchTerm) {
         console.log(youTubeSearchTerm);
@@ -55,11 +58,12 @@ function getActivity(userInput) {
           "oldSearches",
           JSON.stringify(oldSearchesKeywords)
         );
+        displaySearches();
       }
     });
 }
 // This is the function that will get the YouTube video
-function getVideo(youtTubeSearchTerm) {
+/* function getVideo(youtTubeSearchTerm) {
   console.log(youTubeSearchTerm);
   // makes the randomly generated activity from the previous function the text for a YouTube search. "maxResults=1" means it's selecting the first ranked video in response to our search terms.
   var youTubeurl =
@@ -87,6 +91,28 @@ function getVideo(youtTubeSearchTerm) {
       videoDisplay.setAttribute("width", 560);
       YTVideo.append(videoDisplay);
     });
+} */
+
+onload = function () {
+  console.log(localStorage.oldSearches);
+  if (localStorage.oldSearches.length > 1) {
+    displaySearches();
+    var clearSearches = document.createElement("button");
+    clearSearches.textContent = "Clear Past Activities";
+    clearSearchBtn.append(clearSearches);
+  }
+};
+
+function displaySearches() {
+  pastActivities.empty();
+  tryAgainH3.textContent = "Or try one of these activities again!";
+  var oldSearches = JSON.parse(localStorage.oldSearches);
+  for (let i = 0; i < oldSearches.length; i++) {
+    var oldSearch = oldSearches[i];
+    var displaySearches = document.createElement("button");
+    displaySearches.textContent = oldSearch;
+    pastActivities.append(displaySearches);
+  }
 }
 
 // Everything below here is not code for the project, just for instruction and reference.
