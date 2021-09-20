@@ -1,4 +1,7 @@
+// YouTube has a daily quota on how many times we can use its API with this key, so only test the getVideo function when necessary. I've been commenting it out off and on.
 var YOUTUBE_API_KEY = "AIzaSyD_uBzuA9_xBhHQPUXnwD9z8FXwcGsPOnM";
+
+// various selectors
 var youTubeSearchTerm = "";
 var oldSearchesKeywords = [];
 var submitButton = document.querySelector("#submit-search");
@@ -17,7 +20,7 @@ window.addEventListener("load", function () {
 // event listener for Submit button
 submitButton.addEventListener("click", activitySearch);
 
-// gets user's choice from dropdown and passes through to getActivity function
+// gets user's choice from dropdown select and passes through to getActivity function
 function activitySearch() {
   var userInput = activitySelection.value;
   console.log(userInput);
@@ -28,13 +31,13 @@ function activitySearch() {
 function getActivity(userInput) {
   console.log(userInput);
 
-  // clears previous YouTube video
+  // clears previous YouTube video if it's there
   YTVideo.innerHTML = "";
 
   // adds the type of activity to the url to narrow down the selection of randomly chosen activities
   var boredurl = "http://www.boredapi.com/api/activity?type=" + userInput;
 
-  // fetches a set of data and brings it back (as "data") from the Bored API. The randomly generated activity is "data.activity"
+  // fetches a set of data and brings it back (as the array "data") using the Bored API. The randomly generated activity, which is the object we want, is "data.activity"
   fetch(boredurl)
     .then((response) => response.json())
     .then((data) => {
@@ -43,17 +46,14 @@ function getActivity(userInput) {
 
       youTubeSearchTerm = data.activity;
 
-      // displays text of generated activity recommendation
-      recommendedActivity.textContent = youTubeSearchTerm;
-
       // will pass the randomly generated activity on into our next function, which will get the YouTube video
-      // getVideo(youTubeSearchTerm);
+      getVideo(youTubeSearchTerm);
 
       if (youTubeSearchTerm) {
         console.log(youTubeSearchTerm);
         // takes search term and puts it in an array we can stash into local storage
         oldSearchesKeywords.push(youTubeSearchTerm);
-        // puts past searches into local storage. still need to write different function to get it out. I don't know if this will work.
+        // puts past searches into local storage.
         localStorage.setItem(
           "oldSearches",
           JSON.stringify(oldSearchesKeywords)
@@ -63,17 +63,21 @@ function getActivity(userInput) {
     });
 }
 // This is the function that will get the YouTube video
-/* function getVideo(youtTubeSearchTerm) {
+function getVideo(youTubeSearchTerm) {
   console.log(youTubeSearchTerm);
+
+  // displays text of generated activity recommendation
+  recommendedActivity.textContent = youTubeSearchTerm;
+
   // makes the randomly generated activity from the previous function the text for a YouTube search. "maxResults=1" means it's selecting the first ranked video in response to our search terms.
   var youTubeurl =
     "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" +
     "How to " +
-    youtTubeSearchTerm +
+    youTubeSearchTerm +
     "&key=" +
     YOUTUBE_API_KEY;
 
-  // fetches a set of data from the parameters of "How to [whatever the recommended activity was]"
+  // fetches a set of data from the parameters/YouTube search of "How to [whatever the recommended activity was]"
   fetch(youTubeurl)
     .then((response) => response.json())
     .then((data) => {
@@ -91,10 +95,10 @@ function getActivity(userInput) {
       videoDisplay.setAttribute("width", 560);
       YTVideo.append(videoDisplay);
     });
-} */
+}
 
+// if user has already used this app and has previous activities in localstorage, they will display on page load/refresh.
 onload = function () {
-  console.log(localStorage.oldSearches);
   if (localStorage.oldSearches.length > 1) {
     displaySearches();
     var clearSearches = document.createElement("button");
@@ -103,6 +107,7 @@ onload = function () {
   }
 };
 
+// takes past searches from array in localstorage and displays them on page as buttons
 function displaySearches() {
   pastActivities.empty();
   tryAgainH3.textContent = "Or try one of these activities again!";
@@ -110,18 +115,41 @@ function displaySearches() {
   for (let i = 0; i < oldSearches.length; i++) {
     var oldSearch = oldSearches[i];
     var displaySearches = document.createElement("button");
+    displaySearches.setAttribute("id", oldSearch);
     displaySearches.textContent = oldSearch;
     pastActivities.append(displaySearches);
+
+    // gives each button in our past search/activity history an event listener
+    displaySearches.addEventListener("click", getPastSearch);
   }
+}
+
+// takes text content of whatever button is clicked and passes it as a parameter/search term for our getVideo function.
+function getPastSearch(event) {
+  var youTubeSearchTerm = event.target.textContent;
+  console.log(youTubeSearchTerm);
+
+  if (youTubeSearchTerm) {
+    YTVideo.innerHTML = "";
+    getVideo(youTubeSearchTerm);
+  }
+}
+
+// clears past searches and localstorage
+clearSearchBtn.addEventListener("click", clearSearchHistory);
+
+function clearSearchHistory() {
+  pastActivities.empty();
+  tryAgainH3.textContent = "";
+  localStorage.clear();
+  clearSearchBtn.style.display = "none";
 }
 
 // Everything below here is not code for the project, just for instruction and reference.
 
-// generated for task-mp3: "AIzaSyD20DXa9mrzyZxfJD16pNU5G455s598pvY"
+// first API Key generated for task-mp3: "AIzaSyD20DXa9mrzyZxfJD16pNU5G455s598pvY"
 
-// the most recent one I generated on task-seeker:    AIzaSyD_uBzuA9_xBhHQPUXnwD9z8FXwcGsPOnM
-
-// "AIzaSyA8vlF8g2afZUNNSEftj5xUtcpUwNg5uR8";
+// the most recent API Key I generated on task-seeker:    AIzaSyD_uBzuA9_xBhHQPUXnwD9z8FXwcGsPOnM
 
 // https://developers.google.com/youtube/v3/
 
@@ -130,3 +158,5 @@ function displaySearches() {
 // https://developers.google.com/youtube/iframe_api_reference
 
 // https://electrictoolbox.com/jquery-set-multiple-attributes/
+
+// https://stackoverflow.com/questions/35975030/button-group-click-handler-how-to-get-text-content-of-clicked-button
