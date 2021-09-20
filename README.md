@@ -77,7 +77,7 @@ Okay, we have a super cool name that took us ages to come up with, now what? Sin
 
     - While working on the project, the HTML had to be modified several times in order for it to start working with the JavaScript as well as the CSS. The ID's of the options listed for the dropdown were changed throughout working on the project in order to get everything working properly. 
 
-<!-- Probably need to add more details about the HTML >
+<!-- Probably need to add more details about the HTML -->
 
 
 
