@@ -101,6 +101,8 @@ function getVideo(youTubeSearchTerm) {
 onload = function () {
   if (localStorage.oldSearches.length > 1) {
     displaySearches();
+
+    // creates button that will clear old searches when clicked
     var clearSearches = document.createElement("button");
     clearSearches.textContent = "Clear Past Activities";
     clearSearchBtn.append(clearSearches);
