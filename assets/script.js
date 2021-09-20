@@ -1,9 +1,11 @@
-// YouTube has a daily quota on how many times we can use its API with this key, so only test the getVideo function when necessary.
+// YouTube has a daily quota on how many times we can use its API with this key, so only test the getVideo function when necessary. I've been commenting this key out mostly when testing.
 var YOUTUBE_API_KEY = "AIzaSyD_uBzuA9_xBhHQPUXnwD9z8FXwcGsPOnM";
-
-// various selectors
 var youTubeSearchTerm = "";
-var oldSearchesKeywords = [];
+
+// this is kind of a shorthand for an if-else statement: if on page load there is anything in local storage, then will retrieve and put localstorage objects on page. Else it will be an empty array.
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
+var oldSearchesKeywords = localStorage.oldSearches ? JSON.parse(localStorage.oldSearches) : [];
+
 var submitButton = document.querySelector("#submit-search");
 var activitySelection = document.querySelector("#activity-type-select");
 var recommendedActivity = document.querySelector("#recommended-activity");
@@ -40,6 +42,7 @@ function getActivity(userInput) {
   var boredurl = "http://www.boredapi.com/api/activity?type=" + userInput;
 
   // fetches a set of data and brings it back (as the array "data") using the Bored API. The randomly generated activity, which is the object we want, is "data.activity"
+  // re: the => https://stackoverflow.com/questions/24900875/whats-the-meaning-of-an-arrow-formed-from-equals-greater-than-in-javas
   fetch(boredurl)
     .then((response) => response.json())
     .then((data) => {
@@ -119,7 +122,6 @@ function displaySearches() {
   clearSearchBtn.style.display = "flex";
 
   tryAgainH3.textContent = "Or try one of these activities again!";
-
   var oldSearches = JSON.parse(localStorage.oldSearches);
   for (let i = 0; i < oldSearches.length; i++) {
     var oldSearch = oldSearches[i];
