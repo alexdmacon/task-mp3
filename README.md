@@ -70,7 +70,6 @@ And instead of having a quiz that the user has to go through, we narrowed it dow
 Okay, we have a super cool name that took us ages to come up with, now what? Since the team was very attatched to the name "Task.mp3" we figured it needed just a small change to it, so we came up with the even more creative name "Task.mp4"! 
 
 
-<<<<<<< HEAD
 # Getting started: 
 
 * Working on the HTML: With working with the HTML, we based our structure on the sketch that we made for our project, the structure had to include:
@@ -113,5 +112,3 @@ Okay, we have a super cool name that took us ages to come up with, now what? Sin
 ## Reference Links
 
 
-=======
->>>>>>> 8f6d1922cd391253cfb732598571766d43f8490e
