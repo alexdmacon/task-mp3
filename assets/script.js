@@ -1,6 +1,6 @@
 // YouTube has a daily quota on how many times we can use its API with this key, so only test the getVideo function when necessary. I've been commenting this key out mostly when testing.
 var YOUTUBE_API_KEY = "AIzaSyD20DXa9mrzyZxfJD16pNU5G455s598pvY";
-// "AIzaSyD_uBzuA9_xBhHQPUXnwD9z8FXwcGsPOnM";
+//backup YouTube API key: "AIzaSyD_uBzuA9_xBhHQPUXnwD9z8FXwcGsPOnM";
 var youTubeSearchTerm = "";
 
 // this is kind of a shorthand for an if-else statement: if on page load there is anything in local storage, then will retrieve and put localstorage objects on page. Else it will be an empty array.
