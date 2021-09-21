@@ -23,7 +23,7 @@ Using the list of criteria, our project had to use/include:
 * Have a quality ReadMe and be deployedto GitHub Pages
 
 
-Our final result was this: <!-- Display the link to the project here -->
+The final result was this: <!-- Display the link to the project here -->
 
 
 
@@ -31,6 +31,7 @@ Our final result was this: <!-- Display the link to the project here -->
 For our assignment, we were asked to use two different API's that went along with each other in order to create a full functioning appplication that a user can use. 
 
 As a group, we began to brainstorm many differnet ideas that would not only be fun, but actually useful in a real life situation. Some of the ideas included:
+
 - A Crime Database: A way to look up crime in your area.
 
 - Songs and Movies: Look up a particular song and you'll have a list of movies that that particular song has appeared in. 
@@ -76,10 +77,7 @@ Okay, we have a super cool name that took us ages to come up with, now what? Sin
     - A header with the title, a container where our dropdown menu and our submit button would be, a place where our YouTube video will be after the user picks an activity type, and a place where the past searches can be placed and of course, a footer where a creative group name will be placed.
 
     - While working on the project, the HTML had to be modified several times in order for it to start working with the JavaScript as well as the CSS. The ID's of the options listed for the dropdown were changed throughout working on the project in order to get everything working properly. 
-
-<!-- Probably need to add more details about the HTML -->
-
-
+    
 
 
 * Working with the CSS: <!-- Insert info on working on the CSS -->
@@ -89,7 +87,11 @@ Okay, we have a super cool name that took us ages to come up with, now what? Sin
 
 
 
+
 * Wokring with the JavaScript: <!-- Insert info on working on the JavaScript -->
+
+
+
 
 
 
