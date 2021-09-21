@@ -22,6 +22,14 @@ Using the list of criteria, our project had to use/include:
 
 * Have a quality ReadMe and be deployedto GitHub Pages
 
+<!-- I think we could put this user story in the summary around here, right before the link:
+
+Our final user story looked like this:
+- As a bored person,
+- I want a task or activity to do and a video that will show me how to do it,
+- So that I won’t be bored anymore.
+-->
+
 
 The final result was this: <!-- Display the link to the project here -->
 
@@ -48,7 +56,7 @@ A super cool idea that we all agreed on!
 After getting a solid idea of what we wanted to do, we came up with a rough sketch that provided a basic outline of what our website is going to look like. 
 
 <!-- We can insert the rough sketch here if y'all want -->
-
+![Wireframe of the app](/assets/images/wireframe.png)
 
  From there, it seemed like we had a good place to start... 
 
@@ -88,12 +96,13 @@ Okay, we have a super cool name that took us ages to come up with, now what? Sin
 
 
 
-* Wokring with the JavaScript: <!-- Insert info on working on the JavaScript -->
+* Working with the JavaScript: Using Fetch, we first wrote two functions that would retrieve data from the YouTube API and Bored API, respectively. We wanted to take the user input ("type of activity") chosen from the HTML dropdown to adjust our query to the Bored API, which contains a database of activities sorted by type and other parameters. We then pass the selected activity (preceded by "How to," which we found returned more relevant results) as a paramter in our query to the YouTube API, selecting the top YouTube search result for "How to (selected activity)."
 
+We then use jQuery and JavaScript selectors to create or change DOM elements that will populate our app with both the text of that generated activity and the corresponding YouTube video that will show the user how they might go about doing that generated activity.
 
+Using a for loop, we store each generated activity in an array in localStorage. Another function retrieves the objects from the array and displays them as buttons on the page, so that the user can return to a previously generated activity with its matching YouTube video, even after refreshing or closing and returning to the app.
 
-
-
+Conditional statements help determine whether certain methods will run, including those that determine whether anything is saved in the user's localStorage.
 
 
 # Final Thoughts:
