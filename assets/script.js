@@ -1,10 +1,13 @@
 // YouTube has a daily quota on how many times we can use its API with this key, so only test the getVideo function when necessary. I've been commenting this key out mostly when testing.
-var YOUTUBE_API_KEY = "AIzaSyD_uBzuA9_xBhHQPUXnwD9z8FXwcGsPOnM";
+var YOUTUBE_API_KEY = "AIzaSyD20DXa9mrzyZxfJD16pNU5G455s598pvY";
+// "AIzaSyD_uBzuA9_xBhHQPUXnwD9z8FXwcGsPOnM";
 var youTubeSearchTerm = "";
 
 // this is kind of a shorthand for an if-else statement: if on page load there is anything in local storage, then will retrieve and put localstorage objects on page. Else it will be an empty array.
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
-var oldSearchesKeywords = localStorage.oldSearches ? JSON.parse(localStorage.oldSearches) : [];
+var oldSearchesKeywords = localStorage.oldSearches
+  ? JSON.parse(localStorage.oldSearches)
+  : [];
 
 var submitButton = document.querySelector("#submit-search");
 var activitySelection = document.querySelector("#activity-type-select");
@@ -128,6 +131,7 @@ function displaySearches() {
     var displaySearches = document.createElement("button");
     displaySearches.setAttribute("id", oldSearch);
     displaySearches.textContent = oldSearch;
+    pastActivities.append("<br>");
     pastActivities.append(displaySearches);
 
     // gives each button in our past search/activity history an event listener
