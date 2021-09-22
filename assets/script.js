@@ -1,9 +1,10 @@
 // YouTube has a daily quota on how many times we can use its API with this key, so only test the getVideo function when necessary. I've been commenting this key out mostly when testing.
-var YOUTUBE_API_KEY = "AIzaSyD20DXa9mrzyZxfJD16pNU5G455s598pvY";
-//backup YouTube API key: "AIzaSyD_uBzuA9_xBhHQPUXnwD9z8FXwcGsPOnM";
+var YOUTUBE_API_KEY = "AIzaSyD_uBzuA9_xBhHQPUXnwD9z8FXwcGsPOnM";
+//backup YouTube API key: "AIzaSyD20DXa9mrzyZxfJD16pNU5G455s598pvY";
+
 var youTubeSearchTerm = "";
 
-// this is kind of a shorthand for an if-else statement: if on page load there is anything in local storage, then will retrieve and put localstorage objects on page. Else it will be an empty array.
+// this is kind of a shorthand for a conditional: if on page load there is anything in local storage attached to the key "oldSearches", then it will retrieve objects from that array and put the old searches on the page. Else it will be an empty array that the user will fill by searching.
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
 var oldSearchesKeywords = localStorage.oldSearches
   ? JSON.parse(localStorage.oldSearches)
@@ -31,17 +32,23 @@ submitButton.addEventListener("click", activitySearch);
 function activitySearch() {
   var userInput = activitySelection.value;
   console.log(userInput);
-  getActivity(userInput);
+
+  // prevents user from hitting submit without selecting type of activity
+  if (userInput === "stop") {
+    console.log(userInput);
+    return;
+  } else if (userInput != "stop") {
+    getActivity(userInput);
+  }
 }
 
-// will run after the user chooses a type of activity and hits search/submit.
 function getActivity(userInput) {
   console.log(userInput);
 
   // clears previous YouTube video if it's there
   YTVideo.innerHTML = "";
 
-  // adds the type of activity to the url to narrow down the selection of randomly chosen activities
+  // adds the type of activity chosen by the user to the parameters of the query we send to the API, narrowing down the selection of randomly chosen activities
   var boredurl = "http://www.boredapi.com/api/activity?type=" + userInput;
 
   // fetches a set of data and brings it back (as the array "data") using the Bored API. The randomly generated activity, which is the object we want, is "data.activity"
@@ -131,6 +138,7 @@ function displaySearches() {
     var displaySearches = document.createElement("button");
     displaySearches.setAttribute("id", oldSearch);
     displaySearches.textContent = oldSearch;
+    displaySearches.setAttribute("class", "waves-effect waves-light btn-small");
     pastActivities.append("<br>");
     pastActivities.append(displaySearches);
 

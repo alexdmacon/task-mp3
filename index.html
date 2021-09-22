@@ -23,6 +23,7 @@
       </div>
     </nav>
     <br />
+    <main>
     <div class="container">
       <!-- This is the container where our dropdown menu will be -->
       <!-- <section class="q-container"> -->
@@ -32,14 +33,14 @@
       <div class="select-wrapper row"></div>
       <div class="input-field col s12">
         <select class="a-type" id="activity-type-select">
-          <option value="" disabled selected>Choose your option</option>
+          <option value="stop" disabled selected>Choose your option</option>
           <option value="music" id="musicOpt">Something musical</option>
           <option value="relaxation" id="relaxationOpt">I wanna relax</option>
           <option value="education" id="educationOpt">
             I wanna learn something!
           </option>
           <option value="recreational" id="recreationalOpt">
-            I want to be recreational
+            I want to do something recreational!
           </option>
           <option value="charity" id="charityOpt">I want to give back!</option>
           <option value="cooking" id="cookingOpt">Let's get cookin'</option>
@@ -76,11 +77,12 @@
       <section class="storage">
         <h3 id="try-again"></h3>
         <div id="past-activities"></div>
-        <button id="clear-searches-button">Clear Activities</button>
+        <button class="btn btn-submit waves-effect waves-light" id="clear-searches-button">Clear Activities</button>
       </section>
 
-
+</main>
       <footer>Made by: The Algorythmics</footer>
+    
       <title>task.mp4</title>
     </div>
     <!-- Compiled and minified JavaScript -->
