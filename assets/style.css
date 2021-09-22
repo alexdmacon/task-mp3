@@ -21,7 +21,6 @@ main {
 }
 
 footer {
-  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
@@ -29,4 +28,5 @@ footer {
     "Lucida Sans", Arial, sans-serif;
   font-size: 15px;
   text-align: center;
+  margin-top: 20px;
 }
