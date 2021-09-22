@@ -1,9 +1,4 @@
-/* I'm not at all tied to the styles here for #past-activities button and #clear-searches-button, I just made these two selectors so y'all would know they're here. The first one is for an element that is created in JavaScript based on user input, and is not visible in the HTML file--AM */
 #past-activities button{
-    background-color: teal;
-    color: white;
-    font-size: 20px;
-    padding: 4px;
     margin: 4px;
 }
 
@@ -11,25 +6,14 @@
     background-color: salmon;
     color: white;
     font-size: 20px;
-    padding: 4px;
     margin: 4px;
 }
 
-body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
-
-  main {
-    flex: 1 0 auto;
-  }
-  
 footer {
     flex: 1 0 auto;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 15px;
     text-align: center;
-    padding-top: 125px;
+    padding-top: 50px;
     margin-bottom: 5px;
 }
