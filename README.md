@@ -1,8 +1,20 @@
-# task-mp3
+# task-mp4
 
 # Summary:
-For this assignment, we were asked to create a project that solves a real world problem in groups. In this project, our duties were to be devided amongst each other in the group while still working as a team, so in the end, our skills will come together in order to create something useful.
-Using the list of criteria, our project had to use/include:
+For this group assignment, we were asked to create a project that solves a real-world problem. We divided up our duties while still working as a team. In the end, our skills came together to create something useful.
+
+This was the user story that guided us: 
+- "As a bored person,
+- I want a task or activity to do and a video that will show me how to do it,
+- So that I won’t be bored anymore."
+
+To solve that bored person's problem, we created Task.mp4. Our app first asks the user for a type of activity they might be interested in doing. Are they interested in cooking or in music? Doing something social or something creative? Based on the user's choice, Task.mp4 will then recommend a suitable task (using the Bored API) and generate a YouTube video (using the YouTube API) that shows the user how to get started doing that task. The app also stores past activities so the user can again retrieve that information.
+
+With Task.mp4, no one ever has to be bored again.
+
+The final result: https://alexdmacon.github.io/task-mp3/ 
+
+Our project meets these criteria:
 
 * Use a CSS framework other than Bootstrap
 
@@ -22,27 +34,13 @@ Using the list of criteria, our project had to use/include:
 
 * Have a quality ReadMe and be deployedto GitHub Pages
 
-<!-- I think we could put this user story in the summary around here, right before the link:
+![Gif of the app in action](/assets/images/task.mp4.gif)
 
-"Our final user story looked like this:
-- As a bored person,
-- I want a task or activity to do and a video that will show me how to do it,
-- So that I won’t be bored anymore."
+# Usage
+From the dropdown, select what type of activity you're in the mood for and hit "submit." Task.mp4 will recommend a corresponding activity and generate an embedded YouTube video with more details on how to go about doing that activity. You can ask for as many activity recommendations as you'd like. Select a past activity from the generated buttons to retrieve a previously generated YouTube video and task recommendation.
 
-I think we might also want just one two lines here in the summary that just directly say what our app is and does. Something like this:
-
-"To solve that bored person's problem, we created Task.mp4. Our app first asks the user for a type of activity they might be interested in doing. Are they interested in cooking or in music? Doing something social or something creative? Based on the user's choice, Task.mp4 will then recommend a suitable task and generate a YouTube video that shows the user how to get started doing that task. 
-With Task.mp4, no one ever has to be bored again."
-
--->
-
-
-The final result was this: <!-- Display the link to the project here -->
-
-
-
-# Coming up with an Idea:
-For our assignment, we were asked to use two different API's that went along with each other in order to create a full functioning appplication that a user can use. 
+# How We Came Up With This
+For our assignment, we were asked to use two different APIss that went along with each other in order to create a full functioning appplication that a user can use. 
 
 As a group, we began to brainstorm many differnet ideas that would not only be fun, but actually useful in a real life situation. Some of the ideas included:
 
@@ -59,7 +57,7 @@ And then finally, after awhile of brainstorming some cool and crazy ideas, we ca
 
 A super cool idea that we all agreed on!
 
-After getting a solid idea of what we wanted to do, we came up with a rough sketch that provided a basic outline of what our website is going to look like. 
+After getting a solid idea of what we wanted to do, we came up with a rough sketch/wireframe that provided a basic outline of what our website is going to look like. 
 
 <!-- We can insert the rough sketch here if y'all want -->
 ![Wireframe of the app](/assets/images/wireframe.png)
@@ -70,12 +68,12 @@ After getting a solid idea of what we wanted to do, we came up with a rough sket
 # Got a cool project name?
 Coming up with a super cool name for our project was our next task in mind after spending awhile with the brainstorming of project ideas, since our project had something to do with music, we wanted the title to have something "music related" in it, so we got names like:
 - Do a task and get a song
-- Sountrack ____________ or whatever
-Turns out, we werent that creative with names, but at the end, we came up with a unique name that described our projects purpose. We came up with "Task.mp3"!
+- Soundtrack ____________ or whatever
+Turns out, we weren't that creative with names, but in the end, we came up with a unique name that described our project's purpose. We came up with "Task.mp3"!
 
 
 # A Change in Idea:
-When starting to work on the project, we encountered a small problem with the music API that we were originally going to use, unfortunately, the API required a lot more work and authorizing in order for a playlist to actually be displayed, so we scrapped the idea and moved on to our next idea:
+When starting to work on the project, we encountered a small problem with the Spotify music API that we were originally going to use, unfortunately, the API required a lot more work and authorizing in order for a playlist to actually be displayed, so we scrapped the idea and moved on to our next idea:
 Instead of having a playlist being put out after the user takes the quiz, why not provide an actual video on how to do a certain task?
 
     - For example: The user wants to do something that "gets them out there", the app will provide a video on how to go Thift Shopping! 
@@ -91,16 +89,8 @@ Okay, we have a super cool name that took us ages to come up with, now what? Sin
     - A header with the title, a container where our dropdown menu and our submit button would be, a place where our YouTube video will be after the user picks an activity type, and a place where the past searches can be placed and of course, a footer where a creative group name will be placed.
 
     - While working on the project, the HTML had to be modified several times in order for it to start working with the JavaScript as well as the CSS. The ID's of the options listed for the dropdown were changed throughout working on the project in order to get everything working properly. 
-    
 
-
-* Working with the CSS: <!-- Insert info on working on the CSS -->
-
-
-
-
-
-
+* Working with the CSS: We used a Materialize framework for styling.
 
 * Working with the JavaScript: Using Fetch, we first wrote two functions that would retrieve data from the YouTube API and Bored API, respectively. We wanted to take the user input ("type of activity") chosen from the HTML dropdown to adjust our query to the Bored API, which contains a database of activities sorted by type and other parameters. We then pass the selected activity (preceded by "How to," which we found returned more relevant results) as a parameter in our query to the YouTube API, selecting the top YouTube search result for "How to (selected activity)."
 
@@ -111,21 +101,25 @@ Okay, we have a super cool name that took us ages to come up with, now what? Sin
     - Conditional statements help determine whether certain methods will run, including those that determine whether anything is saved in the user's localStorage.
 
 
+![Image of the app](/assets/images/taskmp4.png)
+
 # Final Thoughts:
 
 
+## Credits
+Thanks to our SMU coding boot camp cohort, and to our TAs.
 
-
-
-
-# Finished Product / Screenshot: 
-
-
-
-
-
-
-
-## Reference Links
-
-
+Here are also a few of the links that proved useful in developing this app:
+- https://www.boredapi.com/documentation
+- https://developers.google.com/youtube/v3
+- https://materializecss.com/
+- https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
+- https://stackoverflow.com/questions/24900875/whats-the-meaning-of-an-arrow-formed-from-equals-greater-than-in-javas
+- https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_dropdown_hover
+- https://stackoverflow.com/questions/11315416/how-do-i-get-a-random-youtube-video-with-the-youtube-api
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push
+- https://stackoverflow.com/questions/3138564/looping-through-localstorage-in-html5-and-javascript
+- https://www.youtube.com/watch?v=TE66McLMMEw&t=406s
+- https://rapidapi.com/hub
+- https://developer.mozilla.org/en-US/docs/Web/API/Storage/getItem
