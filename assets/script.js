@@ -49,7 +49,7 @@ function getActivity(userInput) {
   YTVideo.innerHTML = "";
 
   // adds the type of activity chosen by the user to the parameters of the query we send to the API, narrowing down the selection of randomly chosen activities
-  var boredurl = "http://www.boredapi.com/api/activity?type=" + userInput;
+  var boredurl = "https://www.boredapi.com/api/activity?type=" + userInput;
 
   // fetches a set of data and brings it back (as the array "data") using the Bored API. The randomly generated activity, which is the object we want, is "data.activity"
   // re: the => https://stackoverflow.com/questions/24900875/whats-the-meaning-of-an-arrow-formed-from-equals-greater-than-in-javas
