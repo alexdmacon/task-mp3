@@ -34,7 +34,7 @@ Our project meets these criteria:
 
 * Have a quality ReadMe and be deployedto GitHub Pages
 
-![Gif of the app in action](/assets/images/task.mp4.gif)
+![Gif of the app in action](/assets/images/Task.mp4.gif)
 
 # Usage
 From the dropdown, select what type of activity you're in the mood for and hit "submit." Task.mp4 will recommend a corresponding activity and generate an embedded YouTube video with more details on how to go about doing that activity. You can ask for as many activity recommendations as you'd like. Select a past activity from the generated buttons to retrieve a previously generated YouTube video and task recommendation.
