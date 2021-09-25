@@ -90,7 +90,7 @@ Okay, we have a super cool name that took us ages to come up with, now what? Sin
 
     - While working on the project, the HTML had to be modified several times in order for it to start working with the JavaScript as well as the CSS. The ID's of the options listed for the dropdown were changed throughout working on the project in order to get everything working properly. 
 
-* Working with the CSS: We used a Materialize framework for styling.
+* Working with the CSS: Using materialize to fine-tune the appearance of this app involved studying a lot of the documentation and implementing a variety of specific class names to induce certain properties. The largest obstacle in regards to using materialize involved a specific initiation function that had to be included in our main javascript file to prevent element overlapping.
 
 * Working with the JavaScript: Using Fetch, we first wrote two functions that would retrieve data from the YouTube API and Bored API, respectively. We wanted to take the user input ("type of activity") chosen from the HTML dropdown to adjust our query to the Bored API, which contains a database of activities sorted by type and other parameters. We then pass the selected activity (preceded by "How to," which we found returned more relevant results) as a parameter in our query to the YouTube API, selecting the top YouTube search result for "How to (selected activity)."
 
